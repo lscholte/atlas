@@ -9,8 +9,10 @@
 #pragma once
 
 #include "Utils.hpp"
+#include "Geometry.hpp"
 #include "atlas/core/Time.hpp"
 #include "atlas/math/Math.hpp"
+#include <vector>
 
 namespace atlas
 {
@@ -204,6 +206,12 @@ namespace atlas
              *	The Time data for the Scene.
              */
             atlas::core::Time<> mTime;
+			
+			/**
+			 *  \var mGeometries
+			 *  Pointers to the Geometry objects that are contained within this Scene
+			 */
+			std::vector<std::unique_ptr<Geometry>> mGeometries;
         };
     }
 }
