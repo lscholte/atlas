@@ -8,7 +8,11 @@ namespace atlas
     {
         Geometry::Geometry()
         { }
-        
+		
+		Geometry::Geometry(math::Matrix4 t) :
+			mModel(t)
+		{ }
+		
         Geometry::~Geometry()
         { }
 
@@ -32,8 +36,13 @@ namespace atlas
 
         void Geometry::transformGeometry(math::Matrix4 const& t)
         {
-            UNUSED(t);
+			mModel = t * mModel;
         }
+		
+		math::Matrix4 const& Geometry::getModel() const
+		{
+			return mModel;
+		}
 
         void Geometry::resetGeometry()
         { }

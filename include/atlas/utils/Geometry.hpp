@@ -66,6 +66,11 @@ namespace atlas
              *	Empty constructor.
              */
             Geometry();
+			
+			/**
+			 *	Applies a transform to the Geometry that is being constructed.
+			 */
+			Geometry(math::Matrix4 t);
 
             /**
              * Move constructor. Since none of the objects that are associated
@@ -129,12 +134,19 @@ namespace atlas
 
             /**
              *	Called whenever the geometry needs to be transformed by a 
-             *	specific matrix. This should then be multiplied into the
-             *	model matrix in some way.
-             *	
+             *	specific matrix. This will multiply the transformation matrix
+             *	by the model matrix.
+			 *
              *	\param[in] t The transformation matrix.
              */
-            virtual void transformGeometry(math::Matrix4 const& t);
+			void transformGeometry(math::Matrix4 const& t);
+			
+			/**
+			 *  This function returns the model matrix
+			 *
+			 *  \return The model matrix.
+			 */
+			math::Matrix4 const& getModel() const;
 
             /**
              *	This is called whenever the geometry needs to be restored
