@@ -32,7 +32,7 @@ namespace atlas
 
         void Geometry::transformGeometry(math::Matrix4 const& t)
         {
-            UNUSED(t);
+            mModel = t * mModel;
         }
 
         void Geometry::resetGeometry()
