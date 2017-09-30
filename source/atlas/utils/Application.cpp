@@ -206,6 +206,7 @@ namespace atlas
                 settings.isForwardCompat);
 
             glfwWindowHint(GLFW_MAXIMIZED, settings.isMaximized);
+            glfwWindowHint(GLFW_SAMPLES, 4);
 
             GLFWmonitor* monitor = (settings.isFullscreen) ?
                 glfwGetPrimaryMonitor() : NULL;
